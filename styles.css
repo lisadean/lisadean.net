@@ -1,0 +1,66 @@
+body {
+  background: #161b22;
+  color: ivory;
+  font-family: Helvetica, sans-serif;
+}
+a {
+  color: inherit;
+  cursor: pointer;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.eye {
+  height: 200px;
+  clip-path: circle(100px at center);
+  padding: 2em;
+}
+.name {
+  font-size: 3em;
+  margin: 1em 1em 0 1em;
+}
+.title {
+  color: lightgray;
+  font-size: 1.5em;
+  margin: 0 1em 1em 1em;
+}
+.social {
+  font-size: 3em;
+  display: flex;
+  flex-direction: row;
+}
+.social > a {
+  margin: 0.25em;
+}
+.twitter {
+  color: #1da1f2;
+}
+.facebook {
+  color: #4267b2;
+}
+.instagram {
+  background: #d6249f;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* grabbed from https://codepad.co/snippet/instagram-icon-gradient-with-font-awesome */
+}
+.linkedin {
+  color: #0e76a8;
+}
+.github {
+  color: #fafafa;
+}
