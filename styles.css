@@ -2,6 +2,8 @@ body {
   background: #161b22;
   color: ivory;
   font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 a {
   color: inherit;
@@ -34,9 +36,12 @@ a {
   font-size: 3em;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 1em;
 }
 .social > a {
-  margin: 0.25em;
+  margin: 0 0.1em;
 }
 .twitter {
   color: #1da1f2;
