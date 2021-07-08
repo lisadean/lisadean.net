@@ -1,3 +1,11 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 body {
   background: #161b22;
   color: ivory;
@@ -16,32 +24,32 @@ a {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  padding: 0 2em;
 }
 .eye {
   height: 200px;
   clip-path: circle(100px at center);
-  padding: 2em;
 }
 .name {
-  font-size: 3em;
-  margin: 1em 1em 0 1em;
+  font-size: 3rem;
+  margin: 2.5rem 0 0 0;
 }
 .title {
   color: lightgray;
-  font-size: 1.5em;
-  margin: 0 1em 1em 1em;
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem 0;
   text-align: center;
 }
 .social {
-  font-size: 3em;
+  font-size: 3rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 1em;
+  margin: 1rem;
 }
 .social > a {
-  margin: 0 0.1em;
+  margin: 0 0.2rem;
 }
 .twitter {
   color: #1da1f2;
