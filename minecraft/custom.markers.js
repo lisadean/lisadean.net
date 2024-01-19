@@ -43,46 +43,48 @@ UnminedCustomMarkers = {
     markers: [
 
         // Example 1: Simple marker
-        {
-            x: -200,
-            z: -200,
-            image: "custom.pin.png",
-            imageAnchor: [0.5, 1],
-            imageScale: 0.5,
-        },
+        // {
+        //     x: -200,
+        //     z: -200,
+        //     image: "custom.pin.png",
+        //     imageAnchor: [0.5, 1],
+        //     imageScale: 0.5,
+        // },
 
         // Example 2: Marker with text
-        {
-            x: 0,
-            z: 0,
-            image: "custom.pin.png",
-            imageAnchor: [0.5, 1],
-            imageScale: 0.5,
-            text: "Marker with text",
-            textColor: "red", 
-            offsetX: 0,
-            offsetY: 20,
-            font: "bold 20px Calibri,sans serif",
-        },
+        // {
+        //     x: 0,
+        //     z: 0,
+        //     image: "custom.pin.png",
+        //     imageAnchor: [0.5, 1],
+        //     imageScale: 0.5,
+        //     text: "Marker with text",
+        //     textColor: "red", 
+        //     offsetX: 0,
+        //     offsetY: 20,
+        //     font: "bold 20px Calibri,sans serif",
+        // },
 
         // Example 3: Text only
-        {
-            x: 200,
-            z: 200,
-            text: "Text only", 
-            textColor: "yellow", 
-            offsetX: 0,
-            offsetY: 0, 
-            font: "bold 50px Calibri,sans serif",
-        },
+        // {
+        //     x: 200,
+        //     z: 200,
+        //     text: "Text only", 
+        //     textColor: "yellow", 
+        //     offsetX: 0,
+        //     offsetY: 0, 
+        //     font: "bold 50px Calibri,sans serif",
+        // },
 
         {
             x: 1295,
             z: 3482,
             text: "Stronghold",
-            textColor: "purple",
+            textColor: "white",
             image: "portal.svg",
             imageAnchor: [0.5, 1],
+            offsetY: 20,
+            font: "bold 20px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol"
         }
 
         // add your markers here
