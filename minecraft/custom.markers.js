@@ -81,9 +81,8 @@ UnminedCustomMarkers = {
             z: 3482,
             text: "Stronghold",
             textColor: "purple",
-            image: "custom.pin.png",
+            image: "portal.svg",
             imageAnchor: [0.5, 1],
-            imageScale: 0.5,
         }
 
         // add your markers here
