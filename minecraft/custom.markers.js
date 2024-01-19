@@ -76,10 +76,17 @@ UnminedCustomMarkers = {
             font: "bold 50px Calibri,sans serif",
         },
 
+        {
+            x: 1295,
+            z: 3482,
+            text: "Stronghold",
+            textColor: "purple",
+            image: "custom.pin.png",
+            imageAnchor: [0.5, 1],
+            imageScale: 0.5,
+        }
+
         // add your markers here
-
-
-
 
         // do not delete the following two closing brackets
     ]
