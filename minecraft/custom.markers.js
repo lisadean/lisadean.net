@@ -35,11 +35,31 @@ You can use https://mapmarker.io/editor to generate custom pin images.
 Use the imageScale property if the pin image is too large.
 
 */
+let textStuff = {
+    textColor: 'black',
+    image: 'portal.svg',
+    imageAnchor: [0.5, 1],
+    offsetY: 20,
+    font: 'bold 20px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol',
+};
 
 UnminedCustomMarkers = {
   isEnabled: true,
 
   markers: [
+    {
+      x: 1295,
+      z: 3482,
+      text: 'Stronghold',
+      ...textStuff
+    },
+      {
+          x: 61,
+          z: -276,
+          text: 'Lisa',
+          ...textStuff
+      }
+
     // Example 1: Simple marker
     // {
     //     x: -200,
@@ -73,18 +93,7 @@ UnminedCustomMarkers = {
     //     offsetY: 0,
     //     font: "bold 50px Calibri,sans serif",
     // },
-
-    {
-      x: 1295,
-      z: 3482,
-      text: 'Stronghold',
-      textColor: 'black',
-      image: 'portal.svg',
-      imageAnchor: [0.5, 1],
-      offsetY: 20,
-      font: 'bold 20px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol',
-    },
-
+      
     // add your markers here
 
     // do not delete the following two closing brackets
