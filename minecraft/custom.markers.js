@@ -35,12 +35,22 @@ You can use https://mapmarker.io/editor to generate custom pin images.
 Use the imageScale property if the pin image is too large.
 
 */
+
+// https://www.mapmarker.io/documentation/font-awesome/v6/pins
+let pinOptions = {
+    textColor: 'black',
+    imageAnchor: [0.5, 1],
+    offsetz: 20,
+    font: 'bold 20px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol',
+};
 let portalPins = {
-  textColor: 'black',
-  image: 'portal.svg',
-  imageAnchor: [0.5, 1],
-  offsetz: 20,
-  font: 'bold 20px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol',
+    image: 'portal.svg',
+    ...pinOptions
+};
+let poiPins = {
+    image: 'poi.svg',
+    // https://www.mapmarker.io/api/v3/font-awesome/v6/pin?icon=fa-solid%20fa-star&size=75&color=FFF&background=1434A4&hoffset=0&voffset=0
+    ...pinOptions
 };
 
 UnminedCustomMarkers = {
@@ -136,6 +146,12 @@ UnminedCustomMarkers = {
       text: 'Djay Village',
       ...portalPins,
     },
+    {
+      x: -4230,
+      z: -5008,
+      text: 'Frog Habitat Gamma',
+      ...poiPins
+    }
   ],
 };
 
