@@ -5,10 +5,10 @@ var UnminedMapProperties = {
   defaultZoom: -3,
   imageFormat: 'jpeg',
   minRegionX: -13,
-  minRegionZ: -13,
+  minRegionZ: -21,
   maxRegionX: 17,
   maxRegionZ: 11,
-  worldName: "Djay's Realm",
+  worldName: "Djay's Realm - Copy",
   background: '',
   markers: new Array(),
 };
