@@ -21,7 +21,7 @@ Marker format:
         text: marker text do display (in quotes),
         textColor: text color in HTML/CSS format (in quotes),
         offsetX: horizontal pixel offset of the text,
-        offsetz: vertical pixel offset of the text,
+        offsetY: vertical pixel offset of the text,
         font: text font in HTML/CSS format (in quotes),
     },
 
@@ -40,7 +40,7 @@ Use the imageScale property if the pin image is too large.
 let pinOptions = {
     textColor: 'black',
     imageAnchor: [0.5, 1],
-    offsetz: 20,
+    offsetY: 20,
     font: 'bold 20px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol',
 };
 let portalPins = {
@@ -54,9 +54,9 @@ let poiPins = {
 };
 
 UnminedCustomMarkers = {
-  isEnabled: true,
-  markers: [
-    {
+isEnabled: true,
+    markers: [
+{
       x: 1295,
       z: 3482,
       text: 'Stronghold',
@@ -155,36 +155,36 @@ UnminedCustomMarkers = {
   ],
 };
 
-// Example 1: Simple marker
-// {
+        // Example 1: Simple marker
+        // {
 //     x: -200,
-//     z: -200,
-//     image: "custom.pin.png",
-//     imageAnchor: [0.5, 1],
-//     imageScale: 0.5,
-// },
+            //     z: -200,
+            //     image: "custom.pin.png",
+            //     imageAnchor: [0.5, 1],
+            //     imageScale: 0.5,
+        // },
 
-// Example 2: Marker with text
-// {
+        // Example 2: Marker with text
+        // {
 //     x: 0,
-//     z: 0,
-//     image: "custom.pin.png",
-//     imageAnchor: [0.5, 1],
-//     imageScale: 0.5,
-//     text: "Marker with text",
-//     textColor: "red",
-//     offsetX: 0,
-//     offsetz: 20,
-//     font: "bold 20px Calibri,sans serif",
-// },
+            //     z: 0,
+            //     image: "custom.pin.png",
+            //     imageAnchor: [0.5, 1],
+            //     imageScale: 0.5,
+            //     text: "Marker with text",
+            //     textColor: "red", 
+            //     offsetX: 0,
+            //     offsetY: 20,
+            //     font: "bold 20px Calibri,sans serif",
+        // },
 
-// Example 3: Text only
-// {
+        // Example 3: Text only
+        // {
 //     x: 200,
-//     z: 200,
-//     text: "Text only",
-//     textColor: "yellow",
-//     offsetX: 0,
-//     offsetz: 0,
-//     font: "bold 50px Calibri,sans serif",
-// },
+            //     z: 200,
+            //     text: "Text only", 
+            //     textColor: "yellow", 
+            //     offsetX: 0,
+            //     offsetY: 0, 
+            //     font: "bold 50px Calibri,sans serif",
+        // },
