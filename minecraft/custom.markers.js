@@ -44,13 +44,25 @@ let pinOptions = {
     font: 'bold 20px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol',
 };
 let portalPins = {
-    image: 'portal.svg',
-    ...pinOptions
+  ...pinOptions,
+  image: 'portal.svg',
+};
+let portalPinsJason = {
+  ...pinOptions,
+  offsetY: 20,
+  offsetX: -20,
+  image: 'portal.svg',
+};
+let portalPinsAC1 = {
+  ...pinOptions,
+  offsetY: 20,
+  offsetX: 20,
+  image: 'portal.svg',
 };
 let poiPins = {
+  ...pinOptions,
     image: 'poi.svg',
     // https://www.mapmarker.io/api/v3/font-awesome/v6/pin?icon=fa-solid%20fa-star&size=75&color=FFF&background=1434A4&hoffset=0&voffset=0
-    ...pinOptions
 };
 
 UnminedCustomMarkers = {
@@ -156,13 +168,13 @@ isEnabled: true,
       x: 368,
       z: 826,
       text: 'Jason',
-      ...portalPins
+      ...portalPinsJason
     },
     {
       x: 380,
       z: 839,
       text: 'AC1',
-      ...portalPins
+      ...portalPinsAC1
     },
     {
       x: 1211,
