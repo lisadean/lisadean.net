@@ -151,6 +151,42 @@ isEnabled: true,
       z: -5008,
       text: 'Frog Habitat Gamma',
       ...poiPins
+    },
+    {
+      x: 368,
+      z: 826,
+      text: 'Jason',
+      ...portalPins
+    },
+    {
+      x: 380,
+      z: 839,
+      text: 'AC1',
+      ...portalPins
+    },
+    {
+      x: 1211,
+      z: 2269,
+      text: 'AC2',
+      ...portalPins
+    },
+    {
+      x: 1865,
+      z: 2379,
+      text: 'AC3',
+      ...portalPins
+    },
+    {
+      x: 1744,
+      z: -6557,
+      text: 'Ice Station Zero',
+      ...portalPins
+    },
+    {
+      x: -4305,
+      z: -740,
+      text: 'AC4',
+      ...portalPins
     }
   ],
 };
