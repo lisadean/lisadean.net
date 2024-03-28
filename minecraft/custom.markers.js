@@ -191,7 +191,7 @@ isEnabled: true,
     {
       x: 1744,
       z: -6557,
-      text: 'Ice Station Zero',
+      text: 'Ice Station Zebra',
       ...portalPins
     },
     {
