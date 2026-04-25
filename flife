@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F-Life · Quick Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #5A3FB5;
+    --teal:   #0F7A5A;
+    --coral:  #C44A28;
+    --blue:   #1A5EA8;
+    --rose:   #A8285A;
+    --bg:     #F7F6F3;
+    --surface:#FFFFFF;
+    --card:   #F1F0ED;
+    --border: #DDDBD6;
+    --text:   #1A1A1A;
+    --mid:    #444444;
+    --dim:    #888880;
+    --active: var(--purple);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--purple);
+    padding: 28px 32px 24px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  header p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+  }
+
+  /* ── TABS ── */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav button {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    border-bottom: 2.5px solid transparent;
+    padding: 14px 18px 12px;
+    cursor: pointer;
+    color: var(--dim);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  nav button:hover { color: var(--text); }
+  nav button.active { color: var(--active); border-bottom-color: var(--active); }
+
+  /* ── MAIN LAYOUT ── */
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 32px 64px; }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    padding-bottom: 8px;
+    border-bottom: 2.5px solid currentColor;
+    margin-bottom: 16px;
+  }
+
+  /* ── MINI HEADING ── */
+  .mini-heading {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 16px;
+    margin-bottom: 6px;
+  }
+
+  /* ── CARD BOX ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    font-size: 0.82rem;
+    color: var(--mid);
+    line-height: 1.55;
+  }
+  .card.accent {
+    border-left: 3px solid currentColor;
+    padding-left: 10px;
+  }
+  .card-title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+  .card p { margin: 0; }
+  .card p + p { margin-top: 2px; }
+
+  /* ── EDU CARDS ── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .edu-card {
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    padding: 10px 6px;
+    text-align: center;
+  }
+  .edu-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .edu-age { font-size: 0.75rem; margin-bottom: 2px; }
+  .edu-money { font-size: 0.9rem; font-weight: 600; }
+
+  /* ── STEPS ── */
+  .steps { display: flex; flex-direction: column; gap: 8px; margin-bottom: 6px; }
+  .step { display: flex; gap: 10px; align-items: flex-start; font-size: 0.82rem; color: var(--mid); line-height: 1.5; }
+  .step-num {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--text); color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ── FLAT ROWS ── */
+  .flat-rows { margin-bottom: 6px; }
+  .flat-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+  }
+  .flat-row:last-child { border-bottom: none; }
+  .flat-row .label { color: var(--mid); }
+  .flat-row .val { font-weight: 600; font-size: 0.8rem; color: var(--text); }
+
+  /* ── PP TABLE ── */
+  .pp-note { font-size: 0.73rem; color: var(--dim); margin-bottom: 8px; }
+  .pp-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .pp-row {
+    display: flex; justify-content: space-between;
+    padding: 5px 10px; font-size: 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .pp-row:nth-child(odd) { border-right: 1px solid var(--border); }
+  .pp-row:nth-last-child(-n+2) { border-bottom: none; }
+  .pp-row .pts { color: var(--mid); }
+  .pp-row .bonus { font-weight: 600; }
+
+  /* ── BONUS ROWS ── */
+  .bonus-row {
+    display: flex; gap: 10px; align-items: center;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; padding: 7px 10px; margin-bottom: 5px;
+    font-size: 0.82rem;
+  }
+  .bonus-accent { width: 3px; border-radius: 2px; align-self: stretch; flex-shrink: 0; }
+  .bonus-label { font-weight: 600; min-width: 110px; }
+  .bonus-desc { color: var(--mid); }
+
+  /* ── COLOR UTILS ── */
+  .c-purple { color: var(--purple); }
+  .c-teal   { color: var(--teal); }
+  .c-coral  { color: var(--coral); }
+  .c-blue   { color: var(--blue); }
+  .c-rose   { color: var(--rose); }
+
+  .bg-ged  { background: #D4EDDA; } .t-ged  { color: #1E5C30; }
+  .bg-hs   { background: #D0E4F7; } .t-hs   { color: #0C3E78; }
+  .bg-col  { background: #FFF0CC; } .t-col  { color: #7A4A00; }
+  .bg-grad { background: #EDE0FF; } .t-grad { color: #3D1A8A; }
+
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .edu-grid { grid-template-columns: repeat(2, 1fr); }
+    header { padding: 20px; }
+    main { padding: 20px 16px 48px; }
+    nav { padding: 0 16px; }
+    nav button { padding: 12px 10px 10px; font-size: 0.62rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>F-LIFE</h1>
+  <p>Quick Reference</p>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab('setup', this, '#5A3FB5')">Setup</button>
+  <button onclick="showTab('play', this, '#0F7A5A')">How to Play</button>
+  <button onclick="showTab('scoring', this, '#C44A28')">Scoring & Winning</button>
+  <button onclick="showTab('cards', this, '#1A5EA8')">Card Types</button>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════ SETUP ══ -->
+<div id="setup" class="tab-panel active">
+  <div class="two-col">
+    <div>
+      <div class="section-header c-purple">Setup</div>
+
+      <div class="mini-heading">Each player chooses</div>
+      <div class="card">
+        <p>Name · Gender · Sexual orientation</p>
+        <p>Education level (see below)</p>
+      </div>
+
+      <div class="mini-heading">Starting stats by education</div>
+      <div class="edu-grid">
+        <div class="edu-card bg-ged">
+          <div class="edu-label t-ged">GED</div>
+          <div class="edu-age t-ged">Age 16</div>
+          <div class="edu-money t-ged">$0</div>
+        </div>
+        <div class="edu-card bg-hs">
+          <div class="edu-label t-hs">HS</div>
+          <div class="edu-age t-hs">Age 18</div>
+          <div class="edu-money t-hs">–$10k</div>
+        </div>
+        <div class="edu-card bg-col">
+          <div class="edu-label t-col">COL</div>
+          <div class="edu-age t-col">Age 22</div>
+          <div class="edu-money t-col">–$40k</div>
+        </div>
+        <div class="edu-card bg-grad">
+          <div class="edu-label t-grad">GRAD</div>
+          <div class="edu-age t-grad">Age 24</div>
+          <div class="edu-money t-grad">–$100k</div>
+        </div>
+      </div>
+
+      <div class="mini-heading">Turn order</div>
+      <div class="card">
+        <p>Grad School → College → High School → GED</p>
+        <p>Ties: fist fight · breath hold · shot contest · beer chug · or whoever bought the game</p>
+      </div>
+
+      <div class="mini-heading">First turn — each player in order</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div>Draw a Backstory card — keep face-up, affects starting attributes</div></div>
+        <div class="step"><div class="step-num">2</div><div>Draw a Bond card — place face-down without looking</div></div>
+        <div class="step"><div class="step-num">3</div><div>Draw Job cards until you get one matching your education level — keep it face-up. Next player reshuffles Job deck before their turn.</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-header c-rose" style="border-color: var(--rose);">Specialized Backstories</div>
+
+      <div class="mini-heading">Pets &amp; Animals expansion</div>
+      <div class="card accent c-rose" style="border-color: var(--rose); margin-bottom: 6px;">
+        <div class="card-title">Farmer</div>
+        <p>No Job card at start. Salary is $50,000 for the whole game.</p>
+        <p>Can never be fired or become unemployed.</p>
+      </div>
+      <div class="card accent c-rose" style="border-color: var(--rose); margin-bottom: 6px;">
+        <div class="card-title">Furry</div>
+        <p>Mark triangles at ages 25, 35, 45, 55 on your form.</p>
+        <p>At those ages: draw 2 Bond + 1 F-Life + 1 Personality card.</p>
+      </div>
+      <div class="card accent c-rose" style="border-color: var(--rose); margin-bottom: 6px;">
+        <div class="card-title">Crazy Cat Lady</div>
+        <p>Start with $100,000. No Job card. Unemployed, $50k salary.</p>
+        <p>Start at age 65 in retirement. Only die at age 100.</p>
+      </div>
+      <div class="card accent c-rose" style="border-color: var(--rose); margin-bottom: 16px;">
+        <div class="card-title">Zoophiliac</div>
+        <p>Any card with an animal drawn during any player's turn: you draw a Relationship card. Applies to ALL cards in play.</p>
+        <p>Group decides if any card's animal status is debatable.</p>
+      </div>
+
+      <div class="section-header c-rose" style="border-color: var(--rose);">Drug Dealing</div>
+      <div class="mini-heading">Optional · start of your turn · Urbanization &amp; Gangs expansion</div>
+      <div class="card">
+        <p>Buy OR sell ONE Drug card — not both. Do this before all other cards.</p>
+        <p>Buy: $4,000. Sell: discard for printed card value.</p>
+        <p>Some cards can change a Drug card's value.</p>
+        <p>No Drug cards? Skip any instruction to sell/discard/give one away.</p>
+        <p>Exception: Kidney Stone cards and specific card instructions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ HOW TO PLAY ══ -->
+<div id="play" class="tab-panel">
+  <div class="two-col">
+    <div>
+      <div class="section-header c-teal">How to Play</div>
+
+      <div class="mini-heading">Each turn</div>
+      <div class="steps">
+        <div class="step"><div class="step-num" style="background:var(--teal);">1</div><div>Draw a What's Next card and follow instructions. Retired players draw a Retirement card instead.</div></div>
+        <div class="step"><div class="step-num" style="background:var(--teal);">2</div><div>If instructed, draw an F-Life card from the deck matching your education level.</div></div>
+        <div class="step"><div class="step-num" style="background:var(--teal);">3</div><div>Resolve all card actions. Turn ends. Play continues clockwise.</div></div>
+      </div>
+
+      <div class="mini-heading">Key mechanics</div>
+
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-title c-teal">Aging</div>
+        <p>Cross off ages on your form as you pass them.</p>
+        <p>No salary collected when you age.</p>
+        <p>Kidney Stone cards drawn at ages 40, 50, and 60.</p>
+        <p>Reach age 100 → die immediately.</p>
+      </div>
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-title c-teal">Salary</div>
+        <p>Only collected when a card specifically says so.</p>
+        <p>Unemployed: salary cut in half (base job card only).</p>
+      </div>
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-title c-teal">Debt</div>
+        <p>Normal — no penalty. Pay anyway and go further into debt.</p>
+      </div>
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-title c-teal">Retirement</div>
+        <p>Triggered at age 65+. Draw Retirement cards instead of What's Next.</p>
+        <p>Retirement cards can kill you.</p>
+      </div>
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-title c-teal">Death</div>
+        <p>Enter the Graveyard — still take turns.</p>
+        <p>Draw a Graveyard card each turn (secret, held in hand).</p>
+        <p>No more aging once dead.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 46px;">
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-title c-teal">Personality Points</div>
+        <p>Luck + Intellect + Street Smarts + Logic + Charisma.</p>
+        <p>Tracked on your form. Used against other players &amp; for end-game bonuses.</p>
+      </div>
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-title c-teal">Mental Disorders</div>
+        <p>Cannot be cured. Only 'Mental Disorder' cards affect them.</p>
+        <p>'All Illnesses Cured' does NOT cure a mental disorder.</p>
+        <p>End game: –1 to ALL personality point types (doesn't stack).</p>
+      </div>
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-title c-teal">Specialized Medical Conditions</div>
+        <p>Keep the first one you draw. A second one has no effect — discard it.</p>
+        <p>Not illnesses. Cannot be cured or discarded.</p>
+        <p><strong>Dialysis:</strong> draw a Kidney Stone card at ages 70, 80, and 90 before your Retirement card.</p>
+        <p><strong>Dementia / Alzheimer's:</strong> odd age → –$1,000 · even age → +1 year.</p>
+      </div>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-title c-teal">Tacky Decorations</div>
+        <p>Work like any other purchase. Sell at card price at end of game.</p>
+      </div>
+
+      <div class="mini-heading">Key distinctions</div>
+      <div class="card">
+        <p>Addictions ≠ Illnesses ≠ STDs ≠ Mental Disorders — each has its own cures. A cure for one won't affect another.</p>
+        <p>Multiple spouses, STDs, and children are all allowed.</p>
+        <p>Players age ONLY when a card instructs it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SCORING ══ -->
+<div id="scoring" class="tab-panel">
+  <div class="two-col">
+    <div>
+      <div class="section-header c-coral">Scoring &amp; Winning</div>
+
+      <div class="mini-heading">When the game ends</div>
+      <div class="card">
+        <p>Game ends when ALL players have died.</p>
+        <p>1. Determine Peasant &amp; Royalty from current cash on hand first.</p>
+        <p>2. Then total everything up — most money wins.</p>
+      </div>
+
+      <div class="mini-heading">What counts as money</div>
+      <div class="flat-rows">
+        <div class="flat-row"><span class="label">Cash on hand</span><span class="val">Face value</span></div>
+        <div class="flat-row"><span class="label">Possessions</span><span class="val">Sell at card price</span></div>
+        <div class="flat-row"><span class="label">Tacky Decorations</span><span class="val">Sell at card price</span></div>
+        <div class="flat-row"><span class="label">Bond cards</span><span class="val">Card value (can be negative)</span></div>
+        <div class="flat-row"><span class="label">Drug cards (×2 value)</span><span class="val">Sell for double at end</span></div>
+        <div class="flat-row"><span class="label">Personality bonus</span><span class="val">See table →</span></div>
+        <div class="flat-row"><span class="label">Competitive bonuses</span><span class="val">See below</span></div>
+      </div>
+
+      <div class="mini-heading">Personality point bonus</div>
+      <p class="pp-note">Sum all personality point types. Must be positive to earn any bonus.</p>
+      <div class="pp-grid">
+        <div class="pp-row"><span class="pts">1 pt</span><span class="bonus c-coral">+$4,000</span></div>
+        <div class="pp-row"><span class="pts">2 pts</span><span class="bonus c-coral">+$6,000</span></div>
+        <div class="pp-row"><span class="pts">3 pts</span><span class="bonus c-coral">+$10,000</span></div>
+        <div class="pp-row"><span class="pts">4 pts</span><span class="bonus c-coral">+$15,000</span></div>
+        <div class="pp-row"><span class="pts">5 pts</span><span class="bonus c-coral">+$20,000</span></div>
+        <div class="pp-row"><span class="pts">6+ pts</span><span class="bonus c-coral">+$25,000</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-header c-coral">Competitive Bonuses</div>
+
+      <div class="mini-heading">Base game</div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--coral);"></div><div class="bonus-label">Peasant</div><div class="bonus-desc">Least cash on hand (before tallying) draws 5 Bond cards</div></div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--coral);"></div><div class="bonus-label">Royalty</div><div class="bonus-desc">Most cash on hand (before tallying) draws 2 Bond cards</div></div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--coral);"></div><div class="bonus-label">Short Life</div><div class="bonus-desc">First player to die +$30,000</div></div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--coral);"></div><div class="bonus-label">Survivalist</div><div class="bonus-desc">Last player alive +$60,000</div></div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--coral);"></div><div class="bonus-label">Polygamy</div><div class="bonus-desc">Most spouses +$40,000</div></div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--coral);"></div><div class="bonus-label">Full House</div><div class="bonus-desc">Most children +$40,000</div></div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--coral);"></div><div class="bonus-label">STD Bonus</div><div class="bonus-desc">Most STDs +$10,000</div></div>
+
+      <div class="mini-heading">Expansion bonuses</div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--rose);"></div><div class="bonus-label">Toy Play</div><div class="bonus-desc">Most sex toys +$10,000</div></div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--rose);"></div><div class="bonus-label">Drug Empire</div><div class="bonus-desc">Most $ from drug card sales +$20,000</div></div>
+      <div class="bonus-row"><div class="bonus-accent" style="background:var(--rose);"></div><div class="bonus-label">Tacky Decor</div><div class="bonus-desc">Most tacky decorations +$10,000</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ CARD TYPES ══ -->
+<div id="cards" class="tab-panel">
+  <div class="section-header c-blue">Card Types</div>
+  <div class="two-col" style="margin-top:0;">
+    <div>
+      <div class="card accent c-purple" style="border-color:var(--purple); margin-bottom:6px;">
+        <div class="card-title">Backstory</div>
+        <p>Drawn once at start. Sets your unique starting attributes. May be positive or negative.</p>
+      </div>
+      <div class="card accent c-purple" style="border-color:var(--purple); margin-bottom:6px;">
+        <div class="card-title">Bond</div>
+        <p>Placed face-down without looking. Only revealed when instructed. Values can be positive or negative.</p>
+      </div>
+      <div class="card accent c-teal" style="border-color:var(--teal); margin-bottom:6px;">
+        <div class="card-title">F-Life</div>
+        <p>Separate deck per education level. Draw from your matching deck when instructed.</p>
+      </div>
+      <div class="card accent c-teal" style="border-color:var(--teal); margin-bottom:6px;">
+        <div class="card-title">Job</div>
+        <p>Drawn at start; replaced when instructed. Must match your education level. One job at a time.</p>
+      </div>
+      <div class="card accent c-teal" style="border-color:var(--teal); margin-bottom:6px;">
+        <div class="card-title">Kidney Stone</div>
+        <p>Drawn at ages 40, 50, and 60 (underlined on form), IMMEDIATELY after the current player's turn ends.</p>
+      </div>
+      <div class="card accent c-blue" style="border-color:var(--blue); margin-bottom:6px;">
+        <div class="card-title">Personality</div>
+        <p>Held in hand — secret. Use any number at any time.</p>
+      </div>
+      <div class="card accent c-blue" style="border-color:var(--blue); margin-bottom:6px;">
+        <div class="card-title">Relationship</div>
+        <p>Gives spouses, children, STDs, and more. Multiples of everything allowed.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card accent c-blue" style="border-color:var(--blue); margin-bottom:6px;">
+        <div class="card-title">Bankruptcy</div>
+        <p>Declare at any point during the game. Keep for the rest of the game.</p>
+      </div>
+      <div class="card accent c-coral" style="border-color:var(--coral); margin-bottom:6px;">
+        <div class="card-title">Retirement</div>
+        <p>Drawn instead of What's Next at age 65+. Can kill you.</p>
+      </div>
+      <div class="card accent c-coral" style="border-color:var(--coral); margin-bottom:6px;">
+        <div class="card-title">Graveyard</div>
+        <p>Drawn on your turn after death. Secret, held in hand. Any number usable per turn.</p>
+      </div>
+      <div class="card accent c-coral" style="border-color:var(--coral); margin-bottom:6px;">
+        <div class="card-title">What's Next</div>
+        <p>Drawn at the start of each living turn. Not drawn after retirement.</p>
+      </div>
+      <div class="card accent c-rose" style="border-color:var(--rose); margin-bottom:6px;">
+        <div class="card-title">Drug</div>
+        <p>Buy ($4k) or sell one per turn before other cards. End of game: sell for double value.</p>
+      </div>
+      <div class="card accent c-rose" style="border-color:var(--rose); margin-bottom:6px;">
+        <div class="card-title">Mental Disorder</div>
+        <p>Cannot be cured. End game: –1 to ALL personality point types. Penalty doesn't stack.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+function showTab(id, btn, color) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  document.documentElement.style.setProperty('--active', color);
+}
+</script>
+</body>
+</html>
